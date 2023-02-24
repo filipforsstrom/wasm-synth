@@ -1,0 +1,21 @@
+{
+  "name": "cycles-vite",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "npm run build:wasm && vite",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "build:wasm": "rm -rf wasm/pkg/ && wasm-pack build wasm/ --target web --out-name wasm --out-dir ./pkg && npm install ./wasm/pkg",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.3",
+    "vite": "^4.1.0",
+    "vite-plugin-watch-and-run": "^1.1.1"
+  },
+  "dependencies": {
+    "wasm": "file:wasm/pkg"
+  }
+}
