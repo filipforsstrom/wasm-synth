@@ -9,4 +9,12 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-wasm-bindgen = "0.2.84"
+cpal = { version = "0.15.2", features = ["wasm-bindgen"] }
+wasm-bindgen = "0.2.86"
+
+[dependencies.web-sys]
+version = "0.3.22"
+features = ["console"]
+
+[target."cfg(debug_assertions)".dependencies]
+console_error_panic_hook = "0.1.5"
